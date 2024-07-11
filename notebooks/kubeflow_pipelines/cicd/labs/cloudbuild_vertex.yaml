@@ -40,9 +40,7 @@ steps:
   - 'VALIDATION_FILE_PATH=gs://$PROJECT_ID-kfp-artifact-store/data/validation/dataset.csv'
   dir: $_PIPELINE_FOLDER/pipeline_vertex
 
-options:
-  logging: CLOUD_LOGGING_ONLY
-  
+ 
 # Run the pipeline
 - name: 'us-docker.pkg.dev/$PROJECT_ID/asl-artifact-repo/kfp-cli-vertex'
   args:
@@ -57,3 +55,6 @@ images: # TODO
 
 # This is required since the pipeline run overflows the default timeout
 timeout: 10800s
+
+options:
+  logging: CLOUD_LOGGING_ONLY
